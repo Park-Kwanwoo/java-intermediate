@@ -1,6 +1,11 @@
 ### IntelliJ IDEA ###
+.DS_Store
 
 out/
 .idea
 *.iml
 /out
+
+
+### My ###
+pdfs/
