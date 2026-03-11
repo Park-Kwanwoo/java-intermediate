@@ -10,7 +10,7 @@ public class BrowserHistory {
 
     public void visitPage(String url) {
         if (currentPage != null) {
-            history.push(url);
+            history.push(currentPage);
         }
         currentPage = url;
         System.out.println("방문: " + url);
