@@ -1,21 +1,20 @@
 package collection.comapre.test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Deck {
 
-    private Deque<Card> cards = new ArrayDeque<>();
+    private List<Card> cards = new ArrayList<>();
 
     public Deck() {
         initCard();
+        shuffle();
     }
 
-    public List<Card> draw() {
-        List<Card> draws = new ArrayList<>();
-        for(int index = 0; index < 5; index++) {
-            draws.add(cards.poll());
-        }
-        return draws;
+    public Card draw() {
+        return cards.removeFirst();
     }
 
     public void print() {
@@ -23,13 +22,14 @@ public class Deck {
     }
 
     private void initCard() {
-        List<Card> list = new ArrayList<>();
         for (int i = 1; i <= 13; i++) {
             for (CardType value : CardType.values()) {
-                list.add(new Card(value, i));
+                cards.add(new Card(value, i));
             }
         }
-        Collections.shuffle(list);
-        cards.addAll(list);
+    }
+
+    protected  void shuffle() {
+        Collections.shuffle(cards);
     }
 }
